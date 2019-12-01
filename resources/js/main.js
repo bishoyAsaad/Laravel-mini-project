@@ -105,6 +105,12 @@ window.filter = function(e) {
     }
 }
 
+window.getResult = function() {
+    var val = $('#search_query').val();
+    if (val != '')
+    window.location = '/searchPage?query='+val;
+}
+
 var isTimeoutSet = false;
 window.search = function(e) {
     if (e.value != "") {
@@ -113,7 +119,6 @@ window.search = function(e) {
             setTimeout(()=>{
                 if (e.value != "") {
                     Axios.get('/search?query='+e.value).then((res)=>{
-                        console.log(res)
                         $('.c-dropdown').show();
                         $('.c-dropdown').find('.content').empty();
                         res.data.forEach((data)=>{

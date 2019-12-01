@@ -461,6 +461,11 @@ window.filter = function (e) {
   }
 };
 
+window.getResult = function () {
+  var val = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search_query').val();
+  if (val != '') window.location = '/searchPage?query=' + val;
+};
+
 var isTimeoutSet = false;
 
 window.search = function (e) {
@@ -470,7 +475,6 @@ window.search = function (e) {
       setTimeout(function () {
         if (e.value != "") {
           axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/search?query=' + e.value).then(function (res) {
-            console.log(res);
             jquery__WEBPACK_IMPORTED_MODULE_0___default()('.c-dropdown').show();
             jquery__WEBPACK_IMPORTED_MODULE_0___default()('.c-dropdown').find('.content').empty();
             res.data.forEach(function (data) {

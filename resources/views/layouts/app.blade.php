@@ -43,8 +43,8 @@
                         </li>
                     </ul>
                     <div class="navbar-nav mr-auto justify-content-between position-relative col-6">
-                        <input oninput="search(this)" class="form-control" type="search"/>
-                        <button class="btn btn-outline-primary mx-2">Search</button>
+                        <input id="search_query" oninput="search(this)" class="form-control" type="search"/>
+                        <button onclick="getResult()" class="btn btn-outline-primary mx-2">Search</button>
                         <div class="c-dropdown p-1 rounded">
                             <div class="c-dropdown content">
 

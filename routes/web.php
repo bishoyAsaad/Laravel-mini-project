@@ -24,8 +24,15 @@ Route::get('/contact', function() {
 })->name('contact');
 
 Route::get('/search', function(Request $req) {
+    if ($req->input('query') != '')
     return Post::where('title', 'like', '%'.$req->input('query').'%')->get();
 });
+
+Route::get('/searchPage', function(Request $req) {
+    if ($req->input('query') != '')
+    return view('search', ['posts'=>Post::where('title', 'like', '%'.$req->input('query').'%')->get()]);
+});
+
 Route::get('/post/{id}', 'PostController@index')->name('postGet');
 Route::get('/user/{user}', 'UserController@index')->name('userGet');
 
